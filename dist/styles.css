@@ -2,3 +2,13 @@
     margin: 0;
     padding: 0;
 }
+
+.slider .pics > img {
+    display: none;
+}
+
+.slider .pics .current {
+    display: block;
+    margin: auto;
+    width: 70%;
+}

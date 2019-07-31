@@ -5,4 +5,14 @@ html
         link(rel="stylesheet" type="text/css" href="./../styles.min.css")
         title Image slider
     body
+        .slider
+            button.btn-prev prev
+            .pics
+                img(src="../static/1.jpg", alt="scenery photo").current
+                img(src="../static/2.jpg", alt="scenery photo")
+                img(src="../static/3.jpg", alt="scenery photo") 
+            button.btn-next next
+            span.dot
+            span.dot
+            span.dot
         script(src="../scripts.min.js")
