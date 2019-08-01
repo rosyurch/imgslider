@@ -8,12 +8,19 @@
   </head>
   <body>
     <div class="slider">
-      <div class="container">
-        <button class="btn-prev">&#x1F448;</button>
-        <div class="pics"><img class="current" src="../static/1.jpg" alt="scenery photo"/><img src="../static/2.jpg" alt="scenery photo"/><img src="../static/3.jpg" alt="scenery photo"/></div>
-        <button class="btn-next">&#x1F449;</button>
+      <div class="toggle"> 
+        <p>Fade in</p>
       </div>
-      <div class="dot-cont"><span class="dot current-dot"></span><span class="dot"></span><span class="dot"></span></div>
+      <div class="container">
+        <div class="btn-prev"> 
+          <button>&#x1F448;</button>
+        </div>
+        <div class="pics"><img class="current" src="../static/1.jpg" alt="scenery photo"/><img src="../static/2.jpg" alt="scenery photo"/><img src="../static/3.jpg" alt="scenery photo"/></div>
+        <div class="btn-next"> 
+          <button>&#x1F449;</button>
+        </div>
+      </div>
+      <div class="dot-cont"><span class="dot current-dot" id="dot-0"></span><span class="dot" id="dot-1"></span><span class="dot" id="dot-2"></span></div>
     </div>
     <script src="../scripts.min.js"></script>
   </body>

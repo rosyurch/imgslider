@@ -6,15 +6,19 @@ html
         title Image slider
     body
         .slider
+            .toggle 
+                p Fade in
             .container
-                button.btn-prev &#x1F448;
+                .btn-prev 
+                    button &#x1F448;
                 .pics
                     img(src="../static/1.jpg", alt="scenery photo").current
                     img(src="../static/2.jpg", alt="scenery photo")
                     img(src="../static/3.jpg", alt="scenery photo") 
-                button.btn-next &#x1F449;
+                .btn-next 
+                    button &#x1F449;
             .dot-cont
-                span.dot.current-dot
-                span.dot
-                span.dot
+                span#dot-0.dot.current-dot
+                span#dot-1.dot
+                span#dot-2.dot
         script(src="../scripts.min.js")
