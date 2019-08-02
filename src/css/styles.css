@@ -35,7 +35,7 @@
     max-height: 80vh;
     margin: auto;
     z-index: 1;
-    transition: opacity 0.6s ease-in-out;
+    transition: opacity 0.4s ease-in-out;
 }
 
 .move {
@@ -46,7 +46,12 @@
 
 .slider .container .pics img.slide-in {
     transform: translateX(100vw);
-    transition: transform 1s ease-in;
+    transition: transform 0.6s ease-in;
+}
+
+.slider .container .pics img.hide {
+    width: 0px;
+    transition: width 0.6s ease-out;
 }
 
 .container .btn-prev,

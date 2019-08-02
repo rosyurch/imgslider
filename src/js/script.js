@@ -11,6 +11,7 @@ let classesToAdd = ['current'];
 
 nextBtn.addEventListener('click', event => {
     let curIndex = getCurrentIndexRemoveClass(imagesArr);
+
     curIndex = (curIndex + 1) % imagesArr.length;
     imagesArr[curIndex].classList.add(...classesToAdd);
 
@@ -21,6 +22,7 @@ nextBtn.addEventListener('click', event => {
 
 prevBtn.addEventListener('click', event => {
     let curIndex = getCurrentIndexRemoveClass(imagesArr);
+
     curIndex = curIndex ? curIndex - 1 : imagesArr.length - 1;
     imagesArr[curIndex].classList.add(...classesToAdd);
 
@@ -44,7 +46,6 @@ function settingToggle(event) {
         classesToAdd.pop();
         classesToAdd.pop();
     }
-    console.log(classesToAdd);
 }
 
 function dotHandler(event) {
@@ -52,12 +53,13 @@ function dotHandler(event) {
     curr[0].classList.remove('current-dot');
     event.target.classList.add('current-dot');
     getCurrentIndexRemoveClass(imagesArr);
-    imagesArr[parseInt(event.target.id[4], 10)].classList.add('current');
+    imagesArr[parseInt(event.target.id[4], 10)].classList.add(...classesToAdd);
 }
 
 function getCurrentIndexRemoveClass(arr) {
     const curr = arr.filter(image => image.classList.contains('current'));
     index = arr.indexOf(curr[0]); // filter returns 1-element array
-    curr[0].classList.remove('current', 'slide-in');
+    curr[0].classList.remove(...classesToAdd);
+    // if (setting.innerText === 'Slide in') curr[0].classList.add('hide');
     return index;
 }
