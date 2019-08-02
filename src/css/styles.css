@@ -21,14 +21,14 @@
 
 .slider .container .pics > img {
     margin: auto 0;
-    width: 50%;
+    max-width: 90%;
+    max-height: 80vh;
     position: absolute;
     opacity: 0;
     z-index: -1;
 }
 
 .slider .container .pics .current {
-    display: inline-block;
     position: relative;
     opacity: 1;
     width: 90%;
@@ -49,9 +49,14 @@
     transition: transform 0.6s ease-in;
 }
 
-.slider .container .pics img.hide {
-    width: 0px;
-    transition: width 0.6s ease-out;
+.slider .container .pics .slide-out {
+    /* position: relative;
+    opacity: 1;
+    width: 90%;
+    max-height: 80vh;
+    margin: auto;
+    z-index: 1;
+    transform: translateX(100vw); */
 }
 
 .container .btn-prev,
@@ -92,7 +97,6 @@
 }
 
 .slider .dot-cont {
-    /* border: 1px solid #fff; */
     height: 30px;
     width: 50vw;
     margin: 1em auto;

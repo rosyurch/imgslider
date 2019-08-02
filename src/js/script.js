@@ -11,24 +11,27 @@ let classesToAdd = ['current'];
 
 nextBtn.addEventListener('click', event => {
     let curIndex = getCurrentIndexRemoveClass(imagesArr);
+    console.log(imagesArr[curIndex]);
+    newCurIndex = (curIndex + 1) % imagesArr.length;
+    if (setting.innerText === 'Slide in') imagesArr[curIndex].classList.add('slide-out');
+    if (imagesArr[newCurIndex].classList.contains('slide-out')) imagesArr[newCurIndex].classList.remove('slide-out');
 
-    curIndex = (curIndex + 1) % imagesArr.length;
-    imagesArr[curIndex].classList.add(...classesToAdd);
+    imagesArr[newCurIndex].classList.add(...classesToAdd);
 
     const curr = dots.filter(dot => dot.classList.contains('current-dot'));
     curr[0].classList.remove('current-dot');
-    dots[curIndex].classList.add('current-dot');
+    dots[newCurIndex].classList.add('current-dot');
 });
 
 prevBtn.addEventListener('click', event => {
     let curIndex = getCurrentIndexRemoveClass(imagesArr);
-
-    curIndex = curIndex ? curIndex - 1 : imagesArr.length - 1;
-    imagesArr[curIndex].classList.add(...classesToAdd);
+    console.log(imagesArr[curIndex]);
+    newCurIndex = curIndex ? curIndex - 1 : imagesArr.length - 1;
+    imagesArr[newCurIndex].classList.add(...classesToAdd);
 
     const curr = dots.filter(dot => dot.classList.contains('current-dot'));
     curr[0].classList.remove('current-dot');
-    dots[curIndex].classList.add('current-dot');
+    dots[newCurIndex].classList.add('current-dot');
 });
 
 dot0.addEventListener('click', dotHandler);
@@ -45,6 +48,7 @@ function settingToggle(event) {
         event.target.innerText = 'Fade in';
         classesToAdd.pop();
         classesToAdd.pop();
+        imagesArr.forEach(img => img.classList.remove('move', 'slide-in', 'slide-out'));
     }
 }
 
@@ -55,6 +59,14 @@ function dotHandler(event) {
     getCurrentIndexRemoveClass(imagesArr);
     imagesArr[parseInt(event.target.id[4], 10)].classList.add(...classesToAdd);
 }
+
+// function hide(arr, index) {
+//     arr[index].classList.add('hide');
+// }
+
+// function unhide(arr, index) {
+//     arr[index].classList.remove('hide');
+// }
 
 function getCurrentIndexRemoveClass(arr) {
     const curr = arr.filter(image => image.classList.contains('current'));
