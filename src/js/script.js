@@ -1,19 +1,28 @@
-const imagesArr = Array.from(document.querySelectorAll('.slider .container .pics img'));
 const prevBtn = document.querySelector('.slider .container .btn-prev');
 const nextBtn = document.querySelector('.slider .container .btn-next');
 const dot0 = document.querySelector('#dot-0');
-const dot1 = document.querySelector('#dot-1');
-const dot2 = document.querySelector('#dot-2');
-const dots = Array.from(document.querySelectorAll('.dot-cont .dot'));
+
 const setting = document.querySelector('.slider .toggle button');
 const picContainer = document.querySelector('.slider .container .pics .pic-cont');
+
+const imagesArr = Array.from(document.querySelectorAll('.slider .container .pics img'));
+const dotContainer = document.querySelector('.slider .dot-cont');
+
+picContainer.style.width = `${imagesArr.length * 80}vw`;
+
+imagesArr.forEach((img, index, arr) => {
+    //generating dot per image, except the first one, it should exist from the beginnig
+    if (index === 0) return;
+    const dot = createDot(index);
+    dotContainer.appendChild(dot);
+});
+
+const dots = Array.from(document.querySelectorAll('.dot-cont .dot'));
 
 nextBtn.addEventListener('click', fadeInListener);
 prevBtn.addEventListener('click', fadeInListener);
 
 dot0.addEventListener('click', dotHandler);
-dot1.addEventListener('click', dotHandler);
-dot2.addEventListener('click', dotHandler);
 
 setting.addEventListener('click', settingToggle);
 
@@ -94,4 +103,12 @@ function getCurrentIndexRemoveClass(arr) {
     index = arr.indexOf(curr[0]); // filter returns 1-element array
     curr[0].classList.remove('current');
     return index;
+}
+
+function createDot(id) {
+    const dot = document.createElement('span');
+    dot.id = `dot-${id}`;
+    dot.classList.add('dot');
+    dot.addEventListener('click', dotHandler);
+    return dot;
 }
