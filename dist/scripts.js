@@ -1,16 +1,14 @@
 const prevBtn = document.querySelector('.slider .container .btn-prev');
 const nextBtn = document.querySelector('.slider .container .btn-next');
 const dot0 = document.querySelector('#dot-0');
-
 const setting = document.querySelector('.slider .toggle button');
 const picContainer = document.querySelector('.slider .container .pics .pic-cont');
-
 const imagesArr = Array.from(document.querySelectorAll('.slider .container .pics img'));
 const dotContainer = document.querySelector('.slider .dot-cont');
 
 picContainer.style.width = `${imagesArr.length * 80}vw`;
 
-imagesArr.forEach((img, index, arr) => {
+imagesArr.forEach((img, index) => {
     //generating dot per image, except the first one, it should exist from the beginnig
     if (index === 0) return;
     const dot = createDot(index);
@@ -21,9 +19,7 @@ const dots = Array.from(document.querySelectorAll('.dot-cont .dot'));
 
 nextBtn.addEventListener('click', fadeInListener);
 prevBtn.addEventListener('click', fadeInListener);
-
 dot0.addEventListener('click', dotHandler);
-
 setting.addEventListener('click', settingToggle);
 
 function settingToggle(event) {
@@ -66,7 +62,6 @@ function fadeInListener(event) {
 
 function slideInListener(event) {
     const ind = getCurrentIndexRemoveClass(imagesArr);
-
     if (event.target.id === 'next') {
         const newIndex = (ind + 1) % imagesArr.length;
         picContainer.style.transform = `translateX(-${newIndex * 80}vw)`;
