@@ -8,8 +8,6 @@ const dots = Array.from(document.querySelectorAll('.dot-cont .dot'));
 const setting = document.querySelector('.slider .toggle button');
 const picContainer = document.querySelector('.slider .container .pics .pic-cont');
 
-// let classesToAdd = ['current'];
-
 nextBtn.addEventListener('click', fadeInListener);
 prevBtn.addEventListener('click', fadeInListener);
 
