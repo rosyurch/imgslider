@@ -9,15 +9,17 @@
   <body>
     <div class="slider">
       <div class="toggle"> 
-        <p>Fade in</p>
+        <button>Fade in</button>
       </div>
       <div class="container">
         <div class="btn-prev"> 
-          <button>&#x1F448;</button>
+          <button id="prev">&#x1F448;</button>
         </div>
-        <div class="pics"><img class="current" src="../static/1.jpg" alt="scenery photo"/><img src="../static/2.jpg" alt="scenery photo"/><img src="../static/3.jpg" alt="scenery photo"/></div>
+        <div class="pics">
+          <div class="pic-cont fade-in-position"><img class="current" src="../static/1.jpg" alt="scenery photo" id="img-0"/><img src="../static/2.jpg" alt="scenery photo" id="img-1"/><img src="../static/3.jpg" alt="scenery photo" id="img-2"/></div>
+        </div>
         <div class="btn-next"> 
-          <button>&#x1F449;</button>
+          <button id="next">&#x1F449;</button>
         </div>
       </div>
       <div class="dot-cont"><span class="dot current-dot" id="dot-0"></span><span class="dot" id="dot-1"></span><span class="dot" id="dot-2"></span></div>

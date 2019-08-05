@@ -7,16 +7,17 @@ html
     body
         .slider
             .toggle 
-                p Fade in
+                button Fade in
             .container
                 .btn-prev 
-                    button &#x1F448;
+                    button#prev &#x1F448;
                 .pics
-                    img(src="../static/1.jpg", alt="scenery photo").current
-                    img(src="../static/2.jpg", alt="scenery photo")
-                    img(src="../static/3.jpg", alt="scenery photo") 
+                    .pic-cont.fade-in-position
+                        img(src="../static/1.jpg", alt="scenery photo")#img-0.current
+                        img(src="../static/2.jpg", alt="scenery photo")#img-1
+                        img(src="../static/3.jpg", alt="scenery photo")#img-2
                 .btn-next 
-                    button &#x1F449;
+                    button#next &#x1F449;
             .dot-cont
                 span#dot-0.dot.current-dot
                 span#dot-1.dot
